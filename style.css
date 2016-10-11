@@ -32,8 +32,38 @@ input {
 .last-guess {
   display: block;
   margin: auto;
-margin-top: 40px;
+  margin-top: 30px;
+  text-align: center;
+  width: 200px;
+  height: 30px;
+}
+
+.static {
+  margin: 10px auto;
+}
+.response {
+  display: block;
+  margin: auto;
+  margin-top: 10px;
   text-align: center;
   width: 200px;
   height: 200px;
+}
+
+button {
+ border-radius: 12px;
+ background-color: #D0D2D3 ;
+ color: #FFFFFF ;
+ width: 100px;
+ border: none;
+ outline: none;
+}
+
+button:hover {
+ background-color: #EB008B ;
+ color: #FFFFFF ;
+}
+
+.reset-button {
+ width:200px;
 }
