@@ -1,13 +1,21 @@
 <!doctype html>
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="reset.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
   <title>
     Number Guesser
   </title>
 </head>
 <body>
-<header>Number Guesser
+
+<header>
+  <h1>
+    <span id="number">Number</span><span id="guesser"> Guesser</span>
+  </h1>
 </header>
+
 <section>
   <input type="text" class = "main-input" placeholder="Enter your guess"/>
   <button class = "guess">
@@ -17,12 +25,18 @@
     Clear
   </button>
 </section>
+
 <section class = "last-guess">
+  
 </section>
+
 <section class = "reset-number">
   <button class = "reset-button">
     Reset
   </button>
 </section>
+
+<script type="text/javascript" src='javascript.js'>
+</script>
 </body>
 </html>
