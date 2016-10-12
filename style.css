@@ -26,25 +26,39 @@ h1 {
 
 input {
   display: block;
-  margin: auto;
+  height: 30px;
+  width: 300px;
+  font-size: 25px;
+  margin: 20px auto;
+  font-weight: lighter;
+}
+
+input:focus {
+  outline: none;
 }
 
 .your-last-guess-text {
+  color: 404041;
   display: block;
   margin: auto;
+  font-size: 24px;
   margin-top: 30px;
   text-align: center;
-  width: 200px;
+  width: 300px;
   height: 30px;
+  font-weight: lighter;
 }
 
 .last-guess {
+  color: #EB008B;
   display: block;
   margin: auto;
-  margin-top: 30px;
   text-align: center;
-  width: 200px;
-  height: 30px;
+  font-size: 100px;
+  padding: 10px;
+  width: 300px;
+  height: 100px;
+
 }
 
 .static {
@@ -55,25 +69,35 @@ input {
   display: block;
   margin: auto;
   margin-top: 10px;
+  margin-bottom: 30px;
+  padding: 5px;
   text-align: center;
   width: 400px;
   height: 30px;
+  font-size: 24px;
+  font-weight: lighter;
+  line-height: 1.2em;
 }
 
 button {
  border-radius: 12px;
- background-color: #D0D2D3 ;
- color: #FFFFFF ;
- width: 100px;
+ background-color: #D0D2D3;
+ color: #FFFFFF;
+ height: 30px;
+ font-size: 25px;
+ font-weight: lighter;
+ margin: 15px 10px;
+ width: 150px;
+ line-height: inherit; /*centers vertically*/
  border: none;
  outline: none;
 }
 
 button:hover {
- background-color: #EB008B ;
- color: #FFFFFF ;
+ background-color: #EB008B;
+ color: #FFFFFF;
 }
 
 .reset-button {
- width:200px;
+ width:300px;
 }
