@@ -1,0 +1,120 @@
+body {
+  width: 100%;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+header {
+  background-color: #404041;
+  width: 100%;
+  position: relative;
+}
+
+h1 {
+  font-size: 50px;
+  padding: 10px;
+}
+#number {
+  font-weight: 700;
+  color: #ed458b;
+}
+
+#guesser {
+  font-weight: 300;
+  color: #e6e7e8;
+}
+
+input {
+  display: block;
+  height: 30px;
+  width: 300px;
+  font-size: 25px;
+  margin: 20px auto;
+  font-weight: lighter;
+}
+
+input:focus {
+  outline: none;
+}
+
+.your-last-guess-text {
+  color: 404041;
+  display: block;
+  margin: auto;
+  font-size: 24px;
+  margin-top: 30px;
+  text-align: center;
+  width: 300px;
+  height: 30px;
+  font-weight: lighter;
+}
+
+.last-guess {
+  color: #EB008B;
+  display: block;
+  margin: auto;
+  text-align: center;
+  font-size: 100px;
+  padding: 10px;
+  width: 300px;
+  height: 100px;
+
+}
+
+.static {
+  margin: 10px auto;
+}
+
+.response {
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding: 5px;
+  text-align: center;
+  width: 400px;
+  height: 30px;
+  font-size: 24px;
+  font-weight: lighter;
+  line-height: 1.2em;
+}
+
+button {
+ border-radius: 12px;
+ background-color: #D0D2D3;
+ color: #FFFFFF;
+ height: 30px;
+ font-size: 25px;
+ font-weight: lighter;
+ margin: 15px 10px;
+ width: 150px;
+ line-height: inherit; /*centers vertically*/
+ border: none;
+ outline: none;
+}
+
+button:hover {
+ background-color: #EB008B;
+ color: #FFFFFF;
+}
+
+.reset-button {
+ width:300px;
+}
+
+@media screen and (max-width: 500px) {
+ h1 {
+   width: auto;
+   font-size: 35px;
+ }
+ button, #main-input {
+   display: block;
+   width: 200px;
+   margin: 5px auto;
+   width: 90%;
+ }
+.reset-button {
+  width: 90%;
+  margin: auto;
+}
+}

@@ -1,28 +1,45 @@
 <!doctype html>
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="reset.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>
     Number Guesser
   </title>
 </head>
 <body>
-<header>Number Guesser
+
+<header>
+  <h1>
+    <span id="number">Number</span><span id="guesser"> Guesser</span>
+  </h1>
 </header>
+
 <section>
-  <input type="text" class = "main-input" placeholder="Enter your guess"/>
-  <button class = "guess">
+  <input id="main-input"  placeholder="Enter your guess" maxlength="3" min="1" max="100" type="number, text"/>
+  <button class="guess">
     Guess
   </button>
-  <button class = "clear">
+  <button class="clear">
     Clear
   </button>
 </section>
+<section class="your-last-guess-text">
+  <!-- <p>Your last guess was:</p> -->
+</section>
 <section class = "last-guess">
+</section>
+<section class = "response">
 </section>
 <section class = "reset-number">
   <button class = "reset-button">
     Reset
   </button>
 </section>
+
+<script type="text/javascript" src='javascript.js'>
+</script>
 </body>
 </html>
