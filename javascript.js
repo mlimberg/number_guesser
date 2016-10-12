@@ -1,9 +1,21 @@
+//values defined on page load//
+var min = 1;
+var max = 100;
+
+// creating this function for use in the reset button so that it generates a new random number.
+function generateRandomNumber() {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+var submitButton = document.querySelector(".changeminmax")
+var minValueField = document.querySelector("#min-value")
+var maxValueField = document.querySelector("#max-value")
+
+
 //define a random number between 1 and 100//
-var randomNumber = Math.ceil((Math.random() * 100));
-console.log(randomNumber);
+var randomNumber = generateRandomNumber();
 
 // defining global variables for guess and reset functionality
-
 var mainInputField = document.querySelector("#main-input");
 
 var guessSection = document.querySelector('.last-guess');
@@ -24,29 +36,35 @@ var clearButton = document.querySelector('.clear');
 //defining the input as a string to display//
 var userInputString = document.getElementById('main-input');
 
+var rangeText = document.querySelector('.min-max-text');
+
+
+  rangeText.innerText = `Enter a number between ${min} and ${max}`
+
+
 
 //function to simplify getting parsed integer//
 function inputAsNumber() {
   return  parseInt(document.getElementById('main-input').value)
 };
 
+
+
+
 //function to display the "your last guess was" text and the user input as a string - need to set character limit to avoid layout issues if user puts too many characters//
 function displayInputString() {
   guessSection.innerText = document.getElementById('main-input').value;
   yourLastGuessWas.innerText = "Your last guess was";
 };
-// creating this function for use in the reset button so that it generates a new random number.
-function randomNumberFunc() {
-  randomNumber = Math.ceil((Math.random() * 100));
-};
+
 
 // //function to compare input to random number and return a response accordingly//
 function compareAndInform() {
   var resultSection = document.querySelector('.response');
-  if (inputAsNumber() > 100 ) {
-    resultSection.innerText = "Range Exceeded! You need to guess a number between 1 and 100";
-  } else if (inputAsNumber() < 1) {
-    resultSection.innerText = "Range Exceeded! You need to guess a number between 1 and 100";
+  if (inputAsNumber() > max ) {
+    resultSection.innerText = `Range Exceeded! You need to guess a number between ${min} and ${max}`;
+  } else if (inputAsNumber() < min) {
+    resultSection.innerText = `Range Exceeded! You need to guess a number between ${min} and ${max}`;
   } else if (inputAsNumber() < randomNumber) {
     resultSection.innerText = "That is too low";
   } else if (inputAsNumber() > randomNumber) {
@@ -54,7 +72,7 @@ function compareAndInform() {
   } else if (inputAsNumber() === randomNumber) {
     resultSection.innerText = "You guessed it!"
   } else {
-    resultSection.innerText = "You need to guess a NUMBER between 1 and 100";
+    resultSection.innerText = `You need to guess a NUMBER between ${min} and ${max}`;
   }
 };
 
@@ -74,18 +92,23 @@ mainInputField.addEventListener('keypress', function(e) {
   }
 });
 //refreshing the page on click to set a new random number and clear the input//
-
-
-resetButton.addEventListener('click', function(){
-  randomNumberFunc();
+function resetPage() {
+  randomNumber = generateRandomNumber();
   mainInputField.value = "";
   yourLastGuessWas.innerText = "";
   guessSection.innerText = "";
   response.innerText = "";
+  minValueField.value = "";
+  maxValueField.value = "";
   guessButton.disabled = true;
   clearButton.disabled = true;
-  resetButton.disabled = true;
   console.log(randomNumber);
+};
+
+resetButton.addEventListener('click', function(){
+  resetPage();
+  resetButton.disabled = true;
+  submitButton.disabled = true;
 });
 
 mainInputField.addEventListener('keyup', function(){
@@ -97,6 +120,22 @@ mainInputField.addEventListener('keyup', function(){
     guessButton.disabled = true;
     clearButton.disabled = true;
     resetButton.disabled = true;
+  }
+});
+
+minValueField.addEventListener('keyup', function(){
+  if (minValueField.value != "" && maxValueField.value != "") {
+    submitButton.disabled = false;
+  } else {
+    submitButton.disabled = true;
+  }
+});
+
+maxValueField.addEventListener('keyup', function(){
+  if (maxValueField.value != "" && minValueField.value != "") {
+    submitButton.disabled = false;
+  } else {
+    guessButton.disabled = true;
   }
 });
 
@@ -112,3 +151,17 @@ clearButton.addEventListener('click', function(){
   guessButton.disabled = true;
   clearButton.disabled = true;
 });
+
+function updateMinMax() {
+  min = parseInt(minValueField.value);
+  max = parseInt(maxValueField.value);
+}
+function updateMinMaxText () {
+  rangeText.innerText = `Enter a number between ${min} and ${max}`
+}
+submitButton.addEventListener('click', function(){
+  updateMinMax();
+  resetPage();
+  updateMinMaxText();
+  // displayRange();
+})
