@@ -1,5 +1,13 @@
 //define a random number between 1 and 100//
 var randomNumber = Math.ceil((Math.random() * 100));
+console.log(randomNumber);
+
+// defining global variables for guess and reset functionality
+
+var guessSection = document.querySelector('.last-guess');
+var yourLastGuessWas = document.querySelector('.your-last-guess-text');
+var response = document.querySelector('.response');
+
 
 //defining the button object for submitting the user guess//
 var guessButton = document.querySelector('.guess');
@@ -13,18 +21,21 @@ var clearButton = document.querySelector('.clear');
 
 //defining the input as a string to display//
 // var userInputString = document.getElementById('main-input');
-console.log(randomNumber);
+
+
 //function to simplify getting parsed integer//
 function inputAsNumber() {
-  return parseInt(document.getElementById('main-input').value)
+  return  parseInt(document.getElementById('main-input').value)
 };
 
 //function to display the "your last guess was" text and the user input as a string - need to set character limit to avoid layout issues if user puts too many characters//
 function displayInputString() {
-  var guessSection = document.querySelector('.last-guess');
   guessSection.innerText = document.getElementById('main-input').value;
-  var yourLastGuessWas = document.querySelector('.your-last-guess-text');
   yourLastGuessWas.innerText = "Your last guess was";
+};
+// creating this function for use in the reset button so that it generates a new random number.
+function randomNumberFunc() {
+  randomNumber = Math.ceil((Math.random() * 100));
 };
 
 // //function to compare input to random number and return a response accordingly//
@@ -53,6 +64,28 @@ guessButton.addEventListener('click', function() {
 });
 
 //refreshing the page on click to set a new random number and clear the input//
-resetButton.addEventListener('click', function() {
-  location.reload();
+
+
+resetButton.addEventListener('click', function(){
+  randomNumberFunc();
+  mainInputField.value = "";
+  yourLastGuessWas.innerText = "";
+  guessSection.innerText = "";
+  response.innerText = "";
+  console.log(randomNumber);
+});
+
+// resetButton.addEventListener('click', function() {
+//   location.reload();
+// });
+
+// defining main input field as a variable so we can call it in a function and addEventListener
+var mainInputField = document.querySelector("#main-input");
+// defining a function as clearing the input field and replacing it with nothing
+function clearInputField() {
+  mainInputField.value = "";
+}
+// when we click on clear button it clears the input field calling the clearInputField
+clearButton.addEventListener('click', function(){
+  clearInputField();
 });
