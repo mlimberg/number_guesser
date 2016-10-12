@@ -4,9 +4,16 @@ var randomNumber = Math.ceil((Math.random() * 100));
 //defining the button object for submitting the user guess//
 var guessButton = document.querySelector('.guess');
 
+//setting the reset button object//
+var resetButton = document.querySelector('.reset-button');
+
+//setting the reset button object//
+var clearButton = document.querySelector('.clear');
+
+
 //defining the input as a string to display//
 // var userInputString = document.getElementById('main-input');
-
+console.log(randomNumber);
 //function to simplify getting parsed integer//
 function inputAsNumber() {
   return parseInt(document.getElementById('main-input').value)
@@ -38,12 +45,14 @@ function compareAndInform() {
   }
 };
 
-
-
-
-
+//event listener to run functions when button is  clicked that display the user's input and give them feedback based on the input//
 guessButton.addEventListener('click', function() {
   console.log(randomNumber);
   displayInputString();
   compareAndInform();
+});
+
+//refreshing the page on click to set a new random number and clear the input//
+resetButton.addEventListener('click', function() {
+  location.reload();
 });
