@@ -29,6 +29,15 @@ input {
   margin: auto;
 }
 
+.your-last-guess-text {
+  display: block;
+  margin: auto;
+  margin-top: 30px;
+  text-align: center;
+  width: 200px;
+  height: 30px;
+}
+
 .last-guess {
   display: block;
   margin: auto;
@@ -41,13 +50,14 @@ input {
 .static {
   margin: 10px auto;
 }
+
 .response {
   display: block;
   margin: auto;
   margin-top: 10px;
   text-align: center;
-  width: 200px;
-  height: 200px;
+  width: 400px;
+  height: 30px;
 }
 
 button {
