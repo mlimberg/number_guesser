@@ -101,3 +101,20 @@ button:hover {
 .reset-button {
  width:300px;
 }
+
+@media screen and (max-width: 500px) {
+ h1 {
+   width: auto;
+   font-size: 35px;
+ }
+ button, #main-input {
+   display: block;
+   width: 200px;
+   margin: 5px auto;
+   width: 90%;
+ }
+.reset-button {
+  width: 90%;
+  margin: auto;
+}
+}
