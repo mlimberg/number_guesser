@@ -4,6 +4,8 @@ console.log(randomNumber);
 
 // defining global variables for guess and reset functionality
 
+var mainInputField = document.querySelector("#main-input");
+
 var guessSection = document.querySelector('.last-guess');
 var yourLastGuessWas = document.querySelector('.your-last-guess-text');
 var response = document.querySelector('.response');
@@ -20,7 +22,7 @@ var clearButton = document.querySelector('.clear');
 
 
 //defining the input as a string to display//
-// var userInputString = document.getElementById('main-input');
+var userInputString = document.getElementById('main-input');
 
 
 //function to simplify getting parsed integer//
@@ -57,12 +59,20 @@ function compareAndInform() {
 };
 
 //event listener to run functions when button is  clicked that display the user's input and give them feedback based on the input//
-guessButton.addEventListener('click', function() {
-  console.log(randomNumber);
-  displayInputString();
-  compareAndInform();
-});
 
+guessButton.addEventListener('click', function() {
+    console.log(randomNumber);
+    displayInputString();
+    compareAndInform();
+});
+mainInputField.addEventListener('keypress', function(e) {
+  console.log(e)
+  if (e.keyCode===13){
+    console.log(randomNumber);
+    displayInputString();
+    compareAndInform();
+  }
+});
 //refreshing the page on click to set a new random number and clear the input//
 
 
@@ -72,15 +82,26 @@ resetButton.addEventListener('click', function(){
   yourLastGuessWas.innerText = "";
   guessSection.innerText = "";
   response.innerText = "";
+  guessButton.disabled = true;
+  clearButton.disabled = true;
+  resetButton.disabled = true;
   console.log(randomNumber);
 });
 
-// resetButton.addEventListener('click', function() {
-//   location.reload();
-// });
+mainInputField.addEventListener('keyup', function(){
+  if (userInputString.value != "") {
+    guessButton.disabled = false;
+    clearButton.disabled = false;
+    resetButton.disabled = false;
+  } else {
+    guessButton.disabled = true;
+    clearButton.disabled = true;
+    resetButton.disabled = true;
+  }
+});
 
 // defining main input field as a variable so we can call it in a function and addEventListener
-var mainInputField = document.querySelector("#main-input");
+
 // defining a function as clearing the input field and replacing it with nothing
 function clearInputField() {
   mainInputField.value = "";
@@ -88,4 +109,6 @@ function clearInputField() {
 // when we click on clear button it clears the input field calling the clearInputField
 clearButton.addEventListener('click', function(){
   clearInputField();
+  guessButton.disabled = true;
+  clearButton.disabled = true;
 });
