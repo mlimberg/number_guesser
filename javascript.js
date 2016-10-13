@@ -74,7 +74,7 @@ function compareAndInform() {
 //function to increase the min and max value by 10 if the user gets it right. requires updating random number and displayed text as well//
 function increaseValueOnWin() {
   if (inputAsNumber() === randomNumber) {
-      min = min + 10;
+      min = min - 10;
       max = max + 10;
       randomNumber = generateRandomNumber();
       updateMinMaxText();
@@ -121,6 +121,9 @@ resetButton.addEventListener('click', function(){
   resetPage();
   resetButton.disabled = true;
   submitButton.disabled = true;
+  min = 1;
+  max = 100;
+  updateMinMaxText();
 });
 
 //placing content in the input field enables buttons for use//
@@ -181,4 +184,5 @@ submitButton.addEventListener('click', function(){
   updateMinMaxText();
   submitButton.disabled = true;  //ADDED//
   // displayRange();
+  resetButton.disabled = false;
 })
