@@ -19,6 +19,10 @@
 
 <section>
   <input id="main-input"  placeholder="Enter your guess" type="number, text"/>
+
+  <input id="min-value" placeholder="Min Value" type="number" class="value-input"/>
+  <input id="max-value" placeholder="Max Value" type="number" class="value-input"/>
+  <button class="changeminmax" disabled>Adjust Range</button>
   <button class="guess" disabled>
     Guess
   </button>
@@ -26,23 +30,19 @@
     Clear
   </button>
 </section>
-<section class="min-max-text">
-</section>
-<section class="your-last-guess-text">
-  <!-- <p>Your last guess was:</p> -->
-</section>
-<section class = "last-guess">
-</section>
-<section class = "response">
-</section>
+
+<section class="min-max-text"></section>
+
+<section class="your-last-guess-text"></section>
+
+<section class = "last-guess"></section>
+
+<section class = "response"></section>
+
 <section class = "reset-number">
-  <button class = "reset-button" disabled>
-    Reset
-  </button>
+  <button class = "reset-button" disabled>Reset</button>
 </section>
-<input id="min-value" placeholder="Enter a min value" type="number"/>
-<input id="max-value" placeholder="Enter a max value" type="number"/>
-<button class="changeminmax" disabled>Submit</button>
+
 
 <script type="text/javascript" src='javascript.js'>
 </script>
