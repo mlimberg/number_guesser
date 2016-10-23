@@ -55,7 +55,6 @@ input:focus {
   margin: 10px 5px;
 }
 
-
 .changeminmax {
   display: block;
   margin: auto;
@@ -107,12 +106,13 @@ button {
  height: 30px;
  font-size: 25px;
  font-weight: lighter;
- margin: 15px 5px;
- width: 150px;
- line-height: inherit; /*centers vertically*/
+ /*margin: 15px 5px;
+ width: 150px;*/
+ line-height: inherit;
  border: none;
  outline: none;
 }
+
 button[disabled]:hover{
   background-color: #D0D2D3;
 }
@@ -121,11 +121,19 @@ button:hover {
  color: #FFFFFF;
 }
 
-.changeminmax {
-  margin-top: 5px;
+.changeminmax, .clear {
+  margin: 5px 2.5px 10px 2.5px;
+  display: inline-block;
+  width: 155px;
 }
 
-.reset-button, .changeminmax {
+.guess {
+  display: block;
+  width: 320px;
+  margin: 5px auto;
+}
+
+.reset-button {
  width:310px;
 }
 
